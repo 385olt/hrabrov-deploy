@@ -1,0 +1,17 @@
+{% extends "general/layout.html" %}
+
+{% block title %}{{ webpage.title }}{% endblock %}
+
+{% block header %}{{ webpage.header }}{% endblock %}
+
+{% block menu_item_html %}
+  <a href="{% url 'book:index' %}{{menu_item.url}}" {% if menu_item.url == webpage.url %}class="active"{% endif %}>{{menu_item.menu_title}}</a>
+{% endblock %}
+
+{% block sidepanel %}
+  <a href="#" class="btn-large waves-effect waves-light grey darken-3">Скачать .PDF</a>
+{% endblock %}
+
+{% block body %}
+  {{ webpage.content | safe }}
+{% endblock %}

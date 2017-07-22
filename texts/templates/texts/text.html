@@ -1,0 +1,37 @@
+{% extends "general/layout.html" %}
+
+{% block title %}{{ text.title }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block menu_item_html %}
+  <a href="{% url 'texts:index' %}{{menu_item.url}}" {% if menu_item.url == category.url %}class="active"{% endif %}>{{menu_item.menu_title}}</a>
+{% endblock %}
+
+{% block sidepanel %}
+  <p><a href="{% url 'texts:text' url='thesis' %}" class="btn-large waves-effect waves-light grey">Диссертация</a></p>
+  <p><a href="https://vk.com/transformation_of_postmodernism" target="_blank" class="btn-large waves-effect waves-light grey darken-3">Группа ВК</a></p>
+  <p><a href="https://vk.com/basileus_news" target="_blank" class="btn-large waves-effect waves-light grey darken-3">Басилевс</a></p>
+{% endblock %}
+
+{% block body %}
+  <h5>{{ text.title }}</h5>
+  <div>
+    <a href="{% url 'texts:index' %}{{ text.category.url }}"><span class="right-space">{{ text.category.title }}</span></a>
+    <span class="card-details right-space">{{ text.published_at|date:'j F Y' }}</span>
+  </div>
+
+  <p>
+    {{ text.abstract | safe }}
+  </p>
+
+  <h6 style="font-size: 18px; font-weight: bold; color: grey; padding-left: 25px; margin-top: 20px;">Цитата из текста</h6>
+  <blockquote style="border-left: 5px solid grey;">
+    {{ text.quote | safe }}
+  </blockquote>
+
+  <p>
+    <a href="{{ text.file.url }}" target="_blank" class="btn waves-effect grey">Скачать</a>
+  </p>
+
+{% endblock %}

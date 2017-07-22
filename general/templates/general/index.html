@@ -1,0 +1,63 @@
+{% extends "general/layout_index.html" %}
+
+{% block title %}Преображение Постмодернизма в России{% endblock %}
+
+{% block body %}
+  {{ index_welcome | safe }}
+
+  <hr class="separator">
+
+  <h5>Последние Видеозаписи <a href="{% url 'videos:index' %}" class="btn-large waves-effect waves-light grey showall">Просмотреть все</a></h5>
+  <div class="row">
+    {% for video in last_videos %}
+      <div class="col m4">
+        <div class="card small video">
+          <a href="{% url 'videos:video' video_id=video.video_id %}" title="{{ video.title }}">
+            <div class="card-image">
+              <img src="{{ video.thumbnail_medium }}">
+            </div>
+          </a>
+          <div class="card-content video">
+            <a href="{% url 'videos:video' video_id=video.video_id %}" title="{{ video.title }}">
+              <div class="card-video-title">{{ video.title }}</div>
+            </a>
+            <div class="card-video-details">{{ video.published_at|date:'j F Y \a\t H:i' }}</div>
+            <div class="card-video-details"><a href="{% url 'videos:index' %}{{ video.category.url }}">{{ video.category.title }}</a></div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr class="separator">
+
+  <h5>Последние Текстовые Материалы <a href="#" class="btn-large waves-effect waves-light grey showall">Просмотреть все</a></h5>
+  {% for text in last_texts %}
+  <div class="row">
+    <div class="col m12">
+      <div class="card horizontal text-card">
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>{{ text.title }}</h5>
+            <p>{{ text.short_description }}</p>
+
+            <div class="card-text-details">
+              <div class="col m10">
+                  <a href="{% url 'texts:index' %}{{ text.category.url }}"><span class="right-space">{{ text.category.title }}</span></a>
+                  <span class="card-details right-space">{{ text.published_at|date:'j F Y' }}</span>
+              </div>
+              <div class="col m2">
+                <a href="{% url 'texts:text' url=text.url %}">Прочитать</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <hr class="separator">
+
+  <p>Здесь ссылки на соц сети.</p>
+{% endblock %}

@@ -1,0 +1,132 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 180px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+.parallax-container-header {
+  height: 380px;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.donate {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.menu-donate {
+  font-weight: bold;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+hr {
+  margin: 1em auto;
+  border:0;
+  border-top: 1px dotted #AAAAAA;
+}
+
+hr.separator {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.showall {
+  margin-left: 50px;
+}
+
+.content {
+  padding-bottom: 100px;
+}
+
+.table-of-contents a.active {
+    border-left: 2px solid #424242 !important;
+}
+
+.table-of-contents a:hover {
+    border-left: 1px solid #929292 !important;
+}
+
+nav ul a.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card.video {
+  height: auto;
+}
+
+.card-content.video {
+  padding: 5px;
+}
+
+.card-video-title {
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.no-items {
+  color: grey;
+  font-style: italic;
+}
+
+.card-details {
+  font-size: 12px;
+  color: grey;
+}
+
+.card-text-details {
+  margin: 20px 0 0 0;
+}
+
+.right-space {
+  margin-right: 10px;
+}
+
+.text-card {
+  border-left: 5px solid grey;
+}

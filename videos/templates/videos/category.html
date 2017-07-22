@@ -1,0 +1,90 @@
+{% extends "general/layout.html" %}
+
+{% block title %}{{ category.title }}{% endblock %}
+
+{% block header %}{{ category.header }}{% endblock %}
+
+{% block menu_item_html %}
+  <a href="{% url 'videos:index' %}{{menu_item.url}}" {% if menu_item.url == category.url %}class="active"{% endif %}>{{menu_item.menu_title}}</a>
+{% endblock %}
+
+{% block sidepanel %}
+  <a href="https://www.youtube.com/user/ilyahrabrov77" target="_blank" class="btn-large waves-effect waves-light grey darken-3">YouTube канал</a>
+{% endblock %}
+
+{% block body %}
+  {{ category.description | safe }}
+
+  {% if category.description %}
+    <hr>
+  {% endif %}
+
+  {% if videos %}
+    <div class="row">
+      {% for video in videos %}
+
+        <div class="col m4">
+          <div class="card small video">
+            <a href="{% url 'videos:video' video_id=video.video_id %}" title="{{ video.title }}">
+              <div class="card-image">
+                <img src="{{ video.thumbnail_medium }}">
+              </div>
+            </a>
+            <div class="card-content video">
+              <a href="{% url 'videos:video' video_id=video.video_id %}" title="{{ video.title }}">
+                <div class="card-video-title">{{ video.title }}</div>
+              </a>
+              <div class="card-details">{{ video.published_at|date:'j F Y \a\t H:i' }}</div>
+              {% if category.hardcoded %}
+                <div class="card-details"><a href="{% url 'videos:index' %}{{ video.category.url }}">{{ video.category.title }}</a></div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% if forloop.counter|divisibleby:3 %}
+          </div>
+          <div class="row">
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  {% if videos.paginator.num_pages > 1 %}
+    <ul class="pagination center-align">
+      {% if videos.has_previous %}
+        <li class="waves-effect">
+          <a href="{% url 'videos:category_page' url=category.url page=videos.previous_page_number %}"><i class="material-icons">chevron_left</i></a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#"><i class="material-icons">chevron_left</i></a>
+        </li>
+      {% endif %}
+
+      {% with ''|center:videos.paginator.num_pages as range %}
+        {% for _ in range %}
+          <li class="{% if videos.number == forloop.counter %}active grey darken-3{% else %}waves-effect{% endif %}">
+            <a href="{% url 'videos:category_page' url=category.url page=forloop.counter %}">{{ forloop.counter }}</a>
+          </li>
+        {% endfor %}
+      {% endwith %}
+
+      {% if videos.has_next %}
+        <li class="waves-effect">
+          <a href="{% url 'videos:category_page' url=category.url page=videos.next_page_number %}"><i class="material-icons">chevron_right</i></a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#"><i class="material-icons">chevron_right</i></a>
+        </li>
+      {% endif %}
+    </ul>
+  {% endif %}
+
+
+  {% else %}
+    <div class="center-align no-items">
+      Пусто
+    </div>
+  {% endif %}
+{% endblock %}

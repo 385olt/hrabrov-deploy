@@ -1,0 +1,47 @@
+{% extends "general/base.html" %}
+{% load static from staticfiles %}
+{% block layout %}
+<!--
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'backgrounds/1.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+-->
+
+<div>
+  <img src="{% static 'backgrounds/1.jpg' %}" class="responsive-img">
+</div>
+
+  <div class="container">
+    <div class="section content">
+      <div class="row">
+
+        {% if menu_items or show_sidepanel %}
+          <div class="col m9">
+        {% else %}
+          <div class="col m12">
+        {% endif %}
+
+          <h3>{% block header %}{% endblock %}</h3>
+          {% block body %}{% endblock %}
+
+        </div>
+
+        {% if menu_items or show_sidepanel %}
+          <div class="col m3">
+            <ul class="section table-of-contents">
+            {% for menu_item in menu_items %}
+              <li>{% block menu_item_html %}{% endblock %}</li>
+            {% endfor %}
+            </ul>
+
+            {% block sidepanel %}{% endblock %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
