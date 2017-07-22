@@ -1,0 +1,32 @@
+{% extends "general/layout.html" %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block menu_item_html %}
+  <a href="{% url 'videos:index' %}{{menu_item.url}}" {% if menu_item.url == category.url %}class="active"{% endif %}>{{menu_item.menu_title}}</a>
+{% endblock %}
+
+{% block sidepanel %}
+  <a href="https://www.youtube.com/user/ilyahrabrov77" target="_blank" class="btn-large waves-effect waves-light grey darken-3">YouTube канал</a>
+{% endblock %}
+
+{% block body %}
+  <h5>{{ video.title }}</h5>
+  <div>
+    <a href="{% url 'videos:index' %}{{ video.category.url }}"><span class="right-space">{{ video.category.title }}</span></a>
+    <span class="card-details right-space">{{ video.published_at|date:'j F Y \a\t H:i' }}</span>
+  </div>
+
+  <p>
+    <div class="align-center">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </p>
+
+  <p>
+    {{ video.description | safe }}
+  </p>
+
+{% endblock %}

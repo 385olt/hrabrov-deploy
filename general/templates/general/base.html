@@ -1,0 +1,84 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo">Илья Храбров .RU</a>
+        <ul class="right hide-on-med-and-down">
+          {% url 'book:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Книга</a></li>
+          {% url 'videos:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Видеоблог</a></li>
+          {% url 'texts:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Текстовые Материалы</a></li>
+          {% url 'aboutus:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>О Проекте</a></li>
+          {% url 'donate:index' as url %}
+          <li><a href="{{ url }}" class="menu-donate {% if url in request.path %}active{% endif %}">Поддержать</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Книга</a></li>
+          {% url 'videos:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Видеоблог</a></li>
+          {% url 'texts:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>Текстовые Материалы</a></li>
+          {% url 'aboutus:index' as url %}
+          <li><a href="{{ url }}" {% if url in request.path %}class="active"{% endif %}>О Проекте</a></li>
+          {% url 'donate:index' as url %}
+          <li><a href="{{ url }}" class="menu-donate {% if url in request.path %}active{% endif %}">Поддержать</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+
+  {% block layout %}{% endblock %}
+
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+
+          {{ footer_aboutus | safe }}
+
+        </div>
+        <div class="col l3 s12">
+
+          {{ footer_1column | safe }}
+
+        </div>
+        <div class="col l3 s12">
+
+          {{ footer_2column | safe }}
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Schubermen
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+  </body>
+</html>
