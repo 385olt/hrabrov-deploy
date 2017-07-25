@@ -1,0 +1,47 @@
+[
+{
+    "model": "general.message",
+    "pk": 9,
+    "fields": {
+        "name": "texts_sidebar",
+        "description": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c \u0432 \u0440\u0430\u0437\u0434\u0435\u043b\u0435 \"\u0422\u0435\u043a\u0441\u0442\u043e\u0432\u044b\u0435 \u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b\"",
+        "value": "<p><a class=\"btn-large waves-effect waves-light grey\" href=\"{% url 'texts:text' url='thesis' %}\">\u0414\u0438\u0441\u0441\u0435\u0440\u0442\u0430\u0446\u0438\u044f</a></p>\r\n<p><a class=\"btn-large waves-effect waves-light grey darken-3\" href=\"https://vk.com/transformation_of_postmodernism\" target=\"_blank\">\u0413\u0440\u0443\u043f\u043f\u0430 \u0412\u041a</a></p>\r\n<p><a class=\"btn-large waves-effect waves-light grey darken-3\" href=\"https://vk.com/basileus_news\" target=\"_blank\">\u0411\u0430\u0441\u0438\u043b\u0435\u0432\u0441</a></p>"
+    }
+},
+{
+    "model": "general.message",
+    "pk": 6,
+    "fields": {
+        "name": "aboutus_sidebar",
+        "description": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c \u0432 \u0440\u0430\u0437\u0434\u0435\u043b\u0435 \"\u041e \u043d\u0430\u0441\"",
+        "value": ""
+    }
+},
+{
+    "model": "general.message",
+    "pk": 5,
+    "fields": {
+        "name": "book_sidebar",
+        "description": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c \u0432 \u0440\u0430\u0437\u0434\u0435\u043b\u0435 \"\u041a\u043d\u0438\u0433\u0430\"",
+        "value": "<p><a class=\"btn-large waves-effect waves-light grey darken-3\" href=\"#\">\u0421\u043a\u0430\u0447\u0430\u0442\u044c .PDF</a></p>"
+    }
+},
+{
+    "model": "general.message",
+    "pk": 8,
+    "fields": {
+        "name": "videos_sidebar",
+        "description": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c \u0432 \u0440\u0430\u0437\u0434\u0435\u043b\u0435 \"\u0412\u0438\u0434\u0435\u043e\u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b\"",
+        "value": "<p><a class=\"btn-large waves-effect waves-light grey darken-3\" href=\"https://www.youtube.com/user/ilyahrabrov77\" target=\"_blank\">YouTube \u043a\u0430\u043d\u0430\u043b</a></p>"
+    }
+},
+{
+    "model": "general.message",
+    "pk": 7,
+    "fields": {
+        "name": "donate_sidebar",
+        "description": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c \u0432 \u0440\u0430\u0437\u0434\u0435\u043b\u0435 \"\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u0442\u044c\"",
+        "value": "<p><a class=\"btn-large waves-effect waves-light red darken-4\" href=\"#\">\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u0442\u044c!</a></p>"
+    }
+}
+]

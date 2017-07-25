@@ -19,7 +19,7 @@
     <div class="section content">
       <div class="row">
 
-        {% if menu_items or show_sidepanel %}
+        {% if menu_items or sidebar %}
           <div class="col m9">
         {% else %}
           <div class="col m12">
@@ -30,7 +30,7 @@
 
         </div>
 
-        {% if menu_items or show_sidepanel %}
+        {% if menu_items or sidebar %}
           <div class="col m3">
             <ul class="section table-of-contents">
             {% for menu_item in menu_items %}

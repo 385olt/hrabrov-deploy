@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Category, Text
+from general.models import Message
 
 def get_hardcoded_texts(url):
     texts = list()
@@ -16,6 +17,8 @@ def get_hardcoded_texts(url):
 def category(request, url='last_texts', page=1):
     categories = Category.objects.filter(in_menu=True).order_by('menu_order')
     category = get_object_or_404(Category, url=url)
+
+    sidebar = Message.objects.get(name="texts_sidebar").value
 
     if category.hardcoded:
         texts = get_hardcoded_texts(url)
@@ -37,15 +40,17 @@ def category(request, url='last_texts', page=1):
                     'category': category,
                     'texts': texts,
                     'menu_items': categories,
-                    'show_sidepanel': True
+                    'sidebar': sidebar
                 })
 
 def text(request, url):
     categories = Category.objects.filter(in_menu=True).order_by('menu_order')
     text = get_object_or_404(Text, url=url)
 
+    sidebar = Message.objects.get(name="texts_sidebar").value
+
     return render(request, 'texts/text.html', {
                     'text': text,
                     'menu_items': categories,
-                    'show_sidepanel': True
+                    'sidebar': sidebar
                 })
